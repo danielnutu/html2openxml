@@ -70,6 +70,12 @@ namespace HtmlToOpenXml
 
         #endregion
 
+        /// <summary>
+        /// Default style for paragraphs
+        /// </summary>
+        /// <value>Normal</value>
+        public string NormalStyle { get; set; } = "Normal";
+
         #region Hyperlink
 
         /// <summary>

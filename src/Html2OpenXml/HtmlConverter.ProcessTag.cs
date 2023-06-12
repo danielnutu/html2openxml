@@ -664,8 +664,10 @@ namespace HtmlToOpenXml
 
 			List<OpenXmlElement> styleAttributes = new List<OpenXmlElement>();
 			bool newParagraph = ProcessContainerAttributes(en, styleAttributes);
+            currentParagraph.InsertInProperties(prop =>
+				prop.ParagraphStyleId = new ParagraphStyleId() { Val = htmlStyles.GetStyle(htmlStyles.DefaultStyles.NormalStyle, StyleValues.Paragraph) });
 
-			if (styleAttributes.Count > 0)
+            if (styleAttributes.Count > 0)
 				htmlStyles.Runs.BeginTag(en.CurrentTag, styleAttributes.ToArray());
 
 			if (newParagraph)
